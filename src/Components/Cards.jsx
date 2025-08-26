@@ -17,7 +17,7 @@ const Cards = ({ cards }) => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-lg">
                 <div className="bg-gray-100 p-6 rounded-lg shadow-md">
                     <div className="flex row justify-between">
-                        <h2 className="text-2xl font-bold">Job Seekers</h2>
+                        <h2 className="text-2xl font-bold text-teal-800">Job Seekers</h2>
                         {display ? 
                         <>
                         <button>
@@ -48,7 +48,7 @@ const Cards = ({ cards }) => {
                                 to="/jobs"
                                 className="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700"
                                 >
-                                Browse Jobs
+                                View Jobs
                                 </Link>
                             </div>
                         </>
@@ -56,7 +56,7 @@ const Cards = ({ cards }) => {
                 </div>
                 <div className="bg-indigo-100 p-6 rounded-lg shadow-md">
                     <div className="flex row justify-between">
-                        <h2 className="text-2xl font-bold">Employers</h2>
+                        <h2 className="text-2xl font-bold text-teal-800">Employers</h2>
                         {display ? 
                         <>
                         <button>
