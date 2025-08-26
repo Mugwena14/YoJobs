@@ -17,7 +17,7 @@ const Hero = () => {
                     Secure your dream job
                 </h1>
                 <p className="my-4 text-xl text-white">
-                    Connecting Talent with opportunity
+                    Find work you love. Connect, Apply & Grow.
                 </p>
                 </div>
             </div>

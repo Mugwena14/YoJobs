@@ -1,6 +1,9 @@
 import React from 'react'
 
 const Footer = () => {
+
+    const today = new Date().getFullYear();
+
     return (
         <footer className="bg-[#0A2A26] text-gray-300 py-10 px-6">
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -8,10 +11,10 @@ const Footer = () => {
                 <div>
                 <div className="flex items-center space-x-2">
                     {/* Logo placeholder */}
-                    <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center">
                     <span className="text-white font-bold">Y</span>
                     </div>
-                    <h1 className="text-white font-semibold text-lg">YoJobs</h1>
+                    <h1 className="text-white font-semibold text-lg">Jobs</h1>
                 </div>
                 <p className="mt-3 text-sm leading-relaxed">
                     YoJobs is a free modern job platform that connects employers with talented professionals, 
@@ -25,7 +28,7 @@ const Footer = () => {
                 <ul className="space-y-2 text-sm">
                     <li><a href="#" className="hover:text-white">List Jobs</a></li>
                     <li><a href="#" className="hover:text-white">View Jobs</a></li>
-                    <li><a href="#" className="hover:text-white">Apply to Jobs</a></li>
+                    <li><a href="#" className="hover:text-white">Apply for Jobs</a></li>
                 </ul>
                 </div>
 
@@ -47,6 +50,9 @@ const Footer = () => {
                     <li><a href="#" className="hover:text-white">Terms of Service</a></li>
                 </ul>
                 </div>
+            </div>
+            <div className="border-t border-gray-300 mt-8 text-center pt-5">
+                <p>&copy;{today}. All rights reserved | Founder - Makhubele Langavi Clyde</p>
             </div>
         </footer>
     )
