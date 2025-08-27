@@ -1,37 +1,66 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { collection, addDoc } from 'firebase/firestore'
+import { db } from '../config/firebase'
 
 const AddJob = ({ SubmitForm }) => {
 
-    const [type, setType] = useState('Full-Time');
+    const [type, setType] = useState('');
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [salary, setSalary] = useState('Under $50K');
+    const [salary, setSalary] = useState('');
     const [location, setLocation] = useState('');
     const [companyName, setCompanyName] = useState('');
     const [companyDescription, setCompanyDescription] = useState('');
-    const [email, setEmail] = useState('');
+    const [companyEmail, setCompanyEmail] = useState('');
     const [phone, setPhone] = useState('');
 
     const navigate = useNavigate()
 
-    function handleSubmit(e){
+    // function handleSubmit(e){
+    //     e.preventDefault();
+
+    //     const newJob = {
+    //         title,
+    //         type,
+    //         description,
+    //         location,
+    //         salary,
+    //         company: {
+    //             name: companyName,
+    //             description: companyDescription, 
+    //             contactEmail: email,
+    //             contactPhone: phone,
+    //         }
+    //     }
+    //     SubmitForm(newJob)
+    //     navigate('/jobs')
+    // }
+
+    const newJob = {
+        title,
+        type,
+        description,
+        location,
+        salary,
+        company:
+        companyName,
+        companyDescription, 
+        companyEmail,
+        contactPhone,
+        applyLink,
+    }
+
+    async function addJobList(e){
         e.preventDefault();
 
-        const newJob = {
-            title,
-            type,
-            description,
-            location,
-            salary,
-            company: {
-                name: companyName,
-                description: companyDescription, 
-                contactEmail: email,
-                contactPhone: phone,
-            }
+        try{
+            await addDoc(collection(db, "jobs"), {
+                newJob
+            });
+        }catch(error){
+            console.error("Error Listing Job", error)
         }
-        SubmitForm(newJob)
         navigate('/jobs')
     }
 
@@ -58,11 +87,11 @@ const AddJob = ({ SubmitForm }) => {
                         setType(e.target.value)
                     }
                     }
-                >
-                    <option value="Full-Time">Full-Time</option>
-                    <option value="Part-Time">Part-Time</option>
-                    <option value="Remote">Remote</option>
+                >   
+                    <option value="">Select Job Type</option>
                     <option value="Internship">Internship</option>
+                    <option value="PartTime">Part-Time</option>
+                    <option value="FullTime">Full Time</option>
                 </select>
                 </div>
 
@@ -116,17 +145,13 @@ const AddJob = ({ SubmitForm }) => {
                         setSalary(e.target.value)
                     }}
                 >
-                    <option value="Under $50K">Under $50K</option>
-                    <option value="$50K - 60K">$50K - $60K</option>
-                    <option value="$60K - 70K">$60K - $70K</option>
-                    <option value="$70K - 80K">$70K - $80K</option>
-                    <option value="$80K - 90K">$80K - $90K</option>
-                    <option value="$90K - 100K">$90K - $100K</option>
-                    <option value="$100K - 125K">$100K - $125K</option>
-                    <option value="$125K - 150K">$125K - $150K</option>
-                    <option value="$150K - 175K">$150K - $175K</option>
-                    <option value="$175K - 200K">$175K - $200K</option>
-                    <option value="Over $200K">Over $200K</option>
+                    <option value="">Select salary range</option>
+                    <option value="discussed">To Be Discussed</option>
+                    <option value="R0 - R10000">R0 - R10000</option>
+                    <option value="R10000 - R20000">R10000 - R20000</option>
+                    <option value="R20000 - R30000">R20000 - R30000</option>
+                    <option value="R30000 - R40000">R30000 - R40000</option>
+                    <option value="Over R40000">Over R40000</option>
                 </select>
                 </div>
 
@@ -199,9 +224,9 @@ const AddJob = ({ SubmitForm }) => {
                     className="border rounded w-full py-2 px-3"
                     placeholder="Email address for applicants"
                     required
-                    value={email}
+                    value={companyEmail}
                     onChange={(e) => {
-                        setEmail(e.target.value)
+                        setCompanyEmail(e.target.value)
                     }}
                 />
                 </div>
