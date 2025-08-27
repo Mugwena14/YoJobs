@@ -14,7 +14,7 @@ const Hero = () => {
                     className="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl"
                     
                 >
-                    Secure your dream job
+                    Secure your job
                 </h1>
                 <p className="my-4 text-xl text-white">
                     Find work you love. Connect, Apply & Grow.
