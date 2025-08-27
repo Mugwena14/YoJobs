@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
 import { useNavigate } from "react-router-dom";
+import { CiLocationOn } from "react-icons/ci";
 
 const Job = ({ DeleteJob }) => {
 
@@ -32,105 +33,120 @@ const Job = ({ DeleteJob }) => {
     }
 
     return (
-        <div>
-            {loading ? (<Spinner loading={loading}/>) : (
-                <>
-                <section>
-                <div className="container m-auto py-6 px-6">
-                    <Link
-                    to="/jobs/:id"
-                    className="text-indigo-500 hover:text-indigo-600 flex items-center"
-                    >
-                    <i className="fas fa-arrow-left mr-2"></i> Back to Job Listings
-                    </Link>
-                </div>
-                </section>
+            <div>
+                {loading ? (
+                    <Spinner loading={loading} />
+                ) : (
+                    <>
+                    <section className="bg-teal-50">
+                        <div className="container m-auto py-10 px-6">
+                            <div className="grid grid-cols-1 md:grid-cols-[65%_35%] gap-6">
+                                {/* Job Details */}
+                                <main>
+                                <div className="bg-white p-6 rounded-xl shadow-md space-y-4">
+                                    {/* Header */}
+                                    <div className="flex items-center justify-between">
+                                    <Link
+                                        to={`/jobs/${job.id}`}
+                                        className="flex items-center text-sm font-medium text-violet-600 hover:text-teal-700 transition"
+                                    >
+                                        <i className="fas fa-arrow-left mr-2"></i> Back
+                                    </Link>
+                                    <span className="px-3 py-1 text-xs font-semibold text-teal-700 bg-teal-100 rounded-full">
+                                        {job.type}
+                                    </span>
+                                    </div>
 
-                <section className="bg-indigo-50">
-                <div className="container m-auto py-10 px-6">
-                    <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
-                    <main>
-                        <div
-                        className="bg-white p-6 rounded-lg shadow-md text-center md:text-left"
-                        >
-                        <div className="text-gray-500 mb-4">{job.type}</div>
-                        <h1 className="text-3xl font-bold mb-4">
-                            {job.title}
-                        </h1>
-                        <div
-                            className="text-gray-500 mb-4 flex align-middle justify-center md:justify-start"
-                        >
-                            <i
-                            className="fa-solid fa-location-dot text-lg text-orange-700 mr-2"
-                            ></i>
-                            <p className="text-orange-700">{job.location}</p>
+                                    {/* Title*/}
+                                    <div>
+                                    <h1 className="text-2xl font-bold text-gray-900">{job.title}</h1>
+                                    </div>
+
+                                    {/* Description */}
+                                    <div>
+                                    <h3 className="text-teal-700 font-semibold mb-1">Job Description</h3>
+                                    <p className="text-gray-700 text-sm">{job.description}</p>
+                                    </div>
+
+                                    {/* Location */}
+                                    <h3 className="text-teal-700 font-semibold mb-1">Job Location</h3>
+                                    <div className="flex items-center mt-1 text-sm text-violet-600">
+                                        <CiLocationOn size={14} className="inline-block mr-0.5 text-violet text-lg" />
+                                        {job.location}
+                                    </div>
+
+                                    {/* Salary */}
+                                    <div>
+                                    <h3 className="text-teal-700 font-semibold mb-1">Salary</h3>
+                                    <p className="text-violet-600 font-medium text-sm">
+                                        {job.salary} / Year
+                                    </p>
+                                    </div>
+
+                                    {/* Apply Button */}
+                                    <div className="pt-4">
+                                        <button
+                                            onClick={() => console.log("Apply clicked")}
+                                            className="w-full bg-teal-600 hover:bg-violet-600 text-white font-medium py-2 px-4 rounded-lg transition ease-in-out duration-200">
+                                            Apply Now
+                                        </button>
+                                    </div>
+
+                                </div>
+                                </main>
+
+                                {/* Sidebar (Company + Manage merged) */}
+                                <aside>
+                                <div className="bg-white p-6 rounded-xl shadow-md space-y-4">
+                                    {/* Company Info */}
+                                    <div>
+                                    <h2 className="text-xl font-semibold text-teal-700">
+                                        {job.company.name}
+                                    </h2>
+                                    <p className="text-gray-600 text-sm mt-1">
+                                        {job.company.description}
+                                    </p>
+                                    </div>
+
+                                    {/* Contact Info */}
+                                    <div className="space-y-2">
+                                    <div>
+                                        <p className="bg-teal-50 text-teal-700 p-2 rounded text-sm font-medium">
+                                        {job.company.contactEmail}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p className="bg-violet-50 text-violet-700 p-2 rounded text-sm font-medium">
+                                        {job.company.contactPhone}
+                                        </p>
+                                    </div>
+                                    </div>
+
+                                    {/* Manage Actions */}
+                                    <div className="flex flex-col md:flex-row gap-3 pt-2">
+                                    <Link
+                                        to="/add-job"
+                                        className="bg-green-400 hover:bg-teal-600 text-white text-center text-sm font-medium py-2 px-4 rounded-lg transition w-full md:w-1/2"
+                                    >
+                                        Edit Job
+                                    </Link>
+                                    <button
+                                        onClick={() => handleDelete(job.id)}
+                                        className="bg-red-500 hover:bg-red-600 text-white text-sm font-medium py-2 px-4 rounded-lg transition w-full md:w-1/2"
+                                    >
+                                        Delete Job
+                                    </button>
+                                    </div>
+                                </div>
+                                </aside>
+                            </div>
                         </div>
-                        </div>
+                    </section>
+                    </>
+                )}
+</div>
 
-                        <div className="bg-white p-6 rounded-lg shadow-md mt-6">
-                        <h3 className="text-indigo-800 text-lg font-bold mb-6">
-                            Job Description
-                        </h3>
 
-                        <p className="mb-4">
-                            {job.description}
-                        </p>
-
-                        <h3 className="text-indigo-800 text-lg font-bold mb-2">Salary</h3>
-
-                        <p className="mb-4">{job.salary} / Year</p>
-                        </div>
-                    </main>
-
-                    {/* <!-- Sidebar --> */}
-                    <aside>
-                        {/* <!-- Company Info --> */}
-                        <div className="bg-white p-6 rounded-lg shadow-md">
-                        <h3 className="text-xl font-bold mb-6">Company Info</h3>
-
-                        <h2 className="text-2xl">
-                            {job.company.name}
-                        </h2>
-
-                        <p className="my-2">
-                            {job.company.description}
-                        </p>
-
-                        <hr className="my-4" />
-
-                        <h3 className="text-xl">Contact Email:</h3>
-
-                        <p className="my-2 bg-indigo-100 p-2 font-bold">
-                            {job.company.contactEmail}
-                        </p>
-
-                        <h3 className="text-xl">Contact Phone:</h3>
-
-                        <p className="my-2 bg-indigo-100 p-2 font-bold">{job.company.contactPhone}</p>
-                        </div>
-
-                        {/* <!-- Manage --> */}
-                        <div className="bg-white p-6 rounded-lg shadow-md mt-6">
-                        <h3 className="text-xl font-bold mb-6">Manage Job</h3>
-                        <Link
-                            to="/add-job"
-                            className="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
-                            >Edit Job</Link>
-                        <button
-                            onClick={() => handleDelete(job.id)}
-                            className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
-                        >
-                            Delete Job
-                        </button>
-                        </div>
-                    </aside>
-                    </div>
-                </div>
-            </section>
-                </>
-            )}
-            
-        </div>
     )
 }
 

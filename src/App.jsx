@@ -15,6 +15,7 @@ const App = () => {
         <Route index element={<HomePage/>}/>
         <Route path="/index" element={<HomePage/>}/>
         <Route path="/jobs" element={<JobsPage/>}/>
+        <Route path="/jobs/:id" element={<JobsPage/>}/>
         <Route path="/add-job" element={<AddJobPage/>}/>
         <Route path="/job/:id" element={<Job/>}/>
         <Route path="*" element={<NotFnd/>}/>
