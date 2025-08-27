@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
+import { CiLocationOn } from "react-icons/ci";
 
 const JobListings = ({ job }) => {
 
@@ -19,20 +20,37 @@ const JobListings = ({ job }) => {
             <div className="bg-white rounded-xl shadow-md relative">
                 <div className="p-4">
                     <div className="mb-6">
-                        <div className="text-gray-600 my-2">{job.type}</div>
-                        <h3 className="text-xl font-bold">{job.title}</h3>
+                        <div className="inline-block px-3 py-1 text-xs font-semibold text-teal-700 bg-teal-100 rounded-full">{job.type}</div>
+                        <h3 className="mt-3 text-xl font-bold text-gray-700">{job.title}</h3>
                     </div>
 
-                    <div className="mb-5">
+                    <div className="mt-2 text-sm text-gray-600">
                         {description}
                     </div>
 
-                    <button onClick={() => handleShow()}>{showFull ? 'Less' : 'More'}</button>
-                    <h3 className="text-indigo-500 mb-2">{job.salary} / Year</h3>
+                    <button
+                        className="mt-2 text-sm text-teal-600 font-medium hover:underline"
+                        onClick={() => handleShow()}>
+                        {showFull ? 'Less' : 'More'}
+                    </button>
 
                     <div className="border border-gray-100 mb-5"></div>
 
-                    <div className="flex flex-col lg:flex-row justify-between mb-4">
+                    <div className="mt-4 flex items-center justify-between text-sm">
+                        <p className="text-teal-700 font-semibold">{job.salary}</p>
+                        <p className="text-violet-600 font-medium">
+                            <CiLocationOn size={14} className="inline-block mb-1 mr-0.5 text-violet text-lg" />
+                            {job.location}
+                        </p>
+                    </div>
+
+                    <Link to={`/job/${job.id}`}>
+                        <button className="mt-6 w-full bg-teal-600 hover:bg-violet-600 text-white font-medium py-2 px-4 rounded-lg transition ease-in-out duration-200">
+                            View Job
+                        </button>
+                    </Link>
+
+                    {/* <div className="flex flex-col lg:flex-row justify-between mb-4">
                         <div className="text-orange-700 mb-3">
                         <i className="fa-solid fa-location-dot text-lg"></i>
                         {job.location}
@@ -43,7 +61,7 @@ const JobListings = ({ job }) => {
                         >
                         Read More
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
