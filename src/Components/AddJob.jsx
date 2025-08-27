@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { collection, addDoc } from 'firebase/firestore'
 import { db } from '../config/firebase'
 
-const AddJob = ({ SubmitForm }) => {
+const AddJob = () => {
 
     const [type, setType] = useState('');
     const [title, setTitle] = useState('');
@@ -13,29 +13,10 @@ const AddJob = ({ SubmitForm }) => {
     const [companyName, setCompanyName] = useState('');
     const [companyDescription, setCompanyDescription] = useState('');
     const [companyEmail, setCompanyEmail] = useState('');
-    const [phone, setPhone] = useState('');
+    const [contactPhone, setContactPhone] = useState('');
+    const [applyLink, setApplyLink] = useState('');
 
     const navigate = useNavigate()
-
-    // function handleSubmit(e){
-    //     e.preventDefault();
-
-    //     const newJob = {
-    //         title,
-    //         type,
-    //         description,
-    //         location,
-    //         salary,
-    //         company: {
-    //             name: companyName,
-    //             description: companyDescription, 
-    //             contactEmail: email,
-    //             contactPhone: phone,
-    //         }
-    //     }
-    //     SubmitForm(newJob)
-    //     navigate('/jobs')
-    // }
 
     const newJob = {
         title,
@@ -43,7 +24,6 @@ const AddJob = ({ SubmitForm }) => {
         description,
         location,
         salary,
-        company:
         companyName,
         companyDescription, 
         companyEmail,
@@ -51,7 +31,7 @@ const AddJob = ({ SubmitForm }) => {
         applyLink,
     }
 
-    async function addJobList(e){
+    async function handleSubmit(e){
         e.preventDefault();
 
         try{
@@ -242,9 +222,9 @@ const AddJob = ({ SubmitForm }) => {
                     name="contact_phone"
                     className="border rounded w-full py-2 px-3"
                     placeholder="Optional phone for applicants"
-                    value={phone}
+                    value={contactPhone}
                     onChange={(e) => {
-                        setPhone(e.target.value)
+                        setContactPhone(e.target.value)
                     }}
                 />
                 </div>
