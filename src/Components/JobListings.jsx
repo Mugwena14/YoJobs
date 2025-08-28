@@ -28,7 +28,7 @@ const JobListings = ({ job }) => {
                     </div>
 
                     <div className="mt-2 text-sm text-gray-600">
-                        {job.newJob.description}
+                        {description}
                     </div>
 
                     <button
@@ -47,7 +47,7 @@ const JobListings = ({ job }) => {
                         </p>
                     </div>
 
-                    <Link to={`/job/${job.newJob.id}`}>
+                    <Link to={`/job/${job.id}`}>
                         <button className="mt-6 w-full bg-teal-600 hover:bg-violet-600 text-white font-medium py-2 px-4 rounded-lg transition ease-in-out duration-200">
                             View Job
                         </button>

@@ -71,7 +71,7 @@ const AddJob = () => {
                     <option value="">Select Job Type</option>
                     <option value="Internship">Internship</option>
                     <option value="PartTime">Part-Time</option>
-                    <option value="FullTime">Full Time</option>
+                    <option value="FullTime">Full-Time</option>
                 </select>
                 </div>
 
@@ -126,7 +126,7 @@ const AddJob = () => {
                     }}
                 >
                     <option value="">Select salary range</option>
-                    <option value="discussed">To Be Discussed</option>
+                    <option value="To be discussed">To Be Discussed</option>
                     <option value="R0 - R10000">R0 - R10000</option>
                     <option value="R10000 - R20000">R10000 - R20000</option>
                     <option value="R20000 - R30000">R20000 - R30000</option>

@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
 import { useNavigate } from "react-router-dom";
 import { CiLocationOn } from "react-icons/ci";
+import {  doc, getDoc } from 'firebase/firestore';
+import { db } from '../config/firebase';
 
 const Job = ({ DeleteJob }) => {
 
@@ -13,21 +15,21 @@ const Job = ({ DeleteJob }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchData = async () => {
-            try{
-                const querySnapshot = await getDocs(collection(db, "jobs"))
-                const filteredData = querySnapshot.docs.map((doc) => (
-                    {...doc.data(), id: doc.id}
-                ))
-                setJob(filteredData);
-            }catch(error){
-                console.error("Could not fetch Data", error)
-            }finally{
-                setLoading(false)
-            }
+        const fetchJob = async () => {
+        try {
+            const docRef = doc(db, "jobs", id); // reference to the doc by id
+            const docSnap = await getDoc(docRef);
+            const filteredJob = docSnap.data().newJob; // get the data
+            setJob(filteredJob)
+        } catch (error) {
+            console.error("Could not fetch Data", error);
+        } finally {
+            setLoading(false);
         }
-        fetchData();
-    }, [])
+    };  
+
+        fetchJob();
+    }, [id]);
 
     // useEffect(() => {
     //     async function getJob(){
@@ -118,10 +120,10 @@ const Job = ({ DeleteJob }) => {
                                     {/* Company Info */}
                                     <div>
                                     <h2 className="text-xl font-semibold text-teal-700">
-                                        {job.company.name}
+                                        {job.companyName}
                                     </h2>
                                     <p className="text-gray-600 text-sm mt-1">
-                                        {job.company.description}
+                                        {job.companyDescription}
                                     </p>
                                     </div>
 
@@ -129,12 +131,12 @@ const Job = ({ DeleteJob }) => {
                                     <div className="space-y-2">
                                     <div>
                                         <p className="bg-teal-50 text-teal-700 p-2 rounded text-sm font-medium">
-                                        {job.company.contactEmail}
+                                        {job.companyEmail}
                                         </p>
                                     </div>
                                     <div>
                                         <p className="bg-violet-50 text-violet-700 p-2 rounded text-sm font-medium">
-                                        {job.company.contactPhone}
+                                        {job.contactPhone}
                                         </p>
                                     </div>
                                     </div>
