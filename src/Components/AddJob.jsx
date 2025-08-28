@@ -18,7 +18,21 @@ const AddJob = () => {
 
     const navigate = useNavigate()
 
+    const now = new Date();
+
+    const options = {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+    }
+
+    const formattedDate = now.toLocaleString('en-ZA', options);
+
     const newJob = {
+        date: formattedDate,
         title,
         type,
         description,

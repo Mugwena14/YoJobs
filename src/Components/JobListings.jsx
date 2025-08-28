@@ -20,9 +20,11 @@ const JobListings = ({ job }) => {
             <div className="bg-white rounded-xl shadow-md relative">
                 <div className="p-4">
                     <div className="mb-6">
-                        <div 
-                            className="inline-block px-3 py-1 text-xs font-semibold text-teal-700 bg-teal-100 rounded-full">
+                        <div>
+                            <p className="inline-block px-3 py-1 text-xs font-semibold text-teal-700 bg-teal-100 rounded-full">
                                 {job.newJob.type}
+                            </p> 
+                                <span className="text-sm text-teal-700 ml-1">{job.newJob.date}</span>
                         </div>
                         <h3 className="mt-3 text-xl font-bold text-gray-700">{job.newJob.title}</h3>
                     </div>
