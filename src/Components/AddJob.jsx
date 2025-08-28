@@ -76,14 +76,14 @@ const AddJob = () => {
                     {/* Job Title */}
                     <div className="mb-4">
                     <label htmlFor="title" className="block text-violet-800 font-semibold mb-2">
-                        Job Listing Name
+                        Job Listing Position
                     </label>
                     <input
                         type="text"
                         id="title"
                         name="title"
                         className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
-                        placeholder="eg. Frontend Developer"
+                        placeholder="eg. Software Developer"
                         required
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
@@ -100,7 +100,7 @@ const AddJob = () => {
                         name="description"
                         className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
                         rows="4"
-                        placeholder="Add job duties, expectations, requirements..."
+                        placeholder="Add job duties, expectations, requirements, benefits..."
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     ></textarea>
@@ -204,7 +204,7 @@ const AddJob = () => {
                         id="contact_email"
                         name="contact_email"
                         className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
-                        placeholder="Email address for applicants"
+                        placeholder="Company/Recruiter Email address"
                         required
                         value={companyEmail}
                         onChange={(e) => setCompanyEmail(e.target.value)}
@@ -220,8 +220,9 @@ const AddJob = () => {
                         id="contact_phone"
                         name="contact_phone"
                         className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
-                        placeholder="Optional phone for applicants"
+                        placeholder="Company/Recruiter Contact Phone"
                         value={contactPhone}
+                        required
                         onChange={(e) => setContactPhone(e.target.value)}
                     />
                     </div>
