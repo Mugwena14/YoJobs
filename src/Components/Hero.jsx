@@ -1,4 +1,5 @@
 import Cards from "./Cards"
+import LogIn from "./LogIn";
 
 const Hero = () => {
     return (
@@ -23,6 +24,7 @@ const Hero = () => {
             </div>
         </section>
         <Cards/>
+        <LogIn/>
         
         </div>
     )
