@@ -40,7 +40,7 @@ const JobListings = ({ job }) => {
                     <div className="border border-gray-100 mb-5"></div>
 
                     <div className="mt-4 flex items-center justify-between text-sm">
-                        <p className="text-teal-700 font-semibold">{job.newJob.salary}</p>
+                        <p className="text-teal-700 font-semibold">Salary : {job.newJob.salary}</p>
                         <p className="text-violet-600 font-medium">
                             <CiLocationOn size={14} className="inline-block mb-1 mr-0.5 text-violet text-lg" />
                             {job.newJob.location}

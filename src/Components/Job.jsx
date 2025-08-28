@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
 import { useNavigate } from "react-router-dom";
 import { CiLocationOn } from "react-icons/ci";
+import { IoIosArrowRoundBack } from "react-icons/io"
 import {  doc, getDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
 
@@ -31,26 +32,6 @@ const Job = ({ DeleteJob }) => {
         fetchJob();
     }, [id]);
 
-    // useEffect(() => {
-    //     async function getJob(){
-    //         try{
-    //             const res = await fetch(`http://localhost:3001/jobs/${id}`);
-    //             const data = await res.json();
-    //             setJob(data);
-    //         }catch{
-    //             console.log('Could not Get Job', error)
-    //         }finally{
-    //             setLoading(false);
-    //         }
-    //     }
-    //     getJob();
-    // }, [])
-
-    // function handleDelete(jobId){
-    //     DeleteJob(jobId);
-    //     navigate('/jobs')
-    // }
-
     return (
             <div>
                 {loading ? (
@@ -69,7 +50,7 @@ const Job = ({ DeleteJob }) => {
                                         to={`/jobs/${job.id}`}
                                         className="flex items-center text-sm font-medium text-violet-600 hover:text-teal-700 transition"
                                     >
-                                        <i className="fas fa-arrow-left mr-2"></i> Back
+                                        <IoIosArrowRoundBack size={20}/> Back
                                     </Link>
                                     <span className="px-3 py-1 text-xs font-semibold text-teal-700 bg-teal-100 rounded-full">
                                         {job.type}
@@ -98,7 +79,7 @@ const Job = ({ DeleteJob }) => {
                                     <div>
                                     <h3 className="text-teal-700 font-semibold mb-1">Salary</h3>
                                     <p className="text-violet-600 font-medium text-sm">
-                                        {job.salary} / Year
+                                        {job.salary} / Month
                                     </p>
                                     </div>
 
