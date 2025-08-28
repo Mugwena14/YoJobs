@@ -8,7 +8,7 @@ const JobListing = ({ isHome }) => {
 
     
     const [jobs, setJobs] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -17,8 +17,7 @@ const JobListing = ({ isHome }) => {
                 const filteredData = querySnapshot.docs.map((doc) => (
                     {...doc.data(), id: doc.id}
                 ))
-                const homeData = filteredData[0].newJob
-                console.log(homeData);
+                setJobs(filteredData);
             }catch(error){
                 console.error("Could not fetch Data", error)
             }finally{

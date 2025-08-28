@@ -13,24 +13,41 @@ const Job = ({ DeleteJob }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        async function getJob(){
+        const fetchData = async () => {
             try{
-                const res = await fetch(`http://localhost:3001/jobs/${id}`);
-                const data = await res.json();
-                setJob(data);
-            }catch{
-                console.log('Could not Get Job', error)
+                const querySnapshot = await getDocs(collection(db, "jobs"))
+                const filteredData = querySnapshot.docs.map((doc) => (
+                    {...doc.data(), id: doc.id}
+                ))
+                setJob(filteredData);
+            }catch(error){
+                console.error("Could not fetch Data", error)
             }finally{
-                setLoading(false);
+                setLoading(false)
             }
         }
-        getJob();
+        fetchData();
     }, [])
 
-    function handleDelete(jobId){
-        DeleteJob(jobId);
-        navigate('/jobs')
-    }
+    // useEffect(() => {
+    //     async function getJob(){
+    //         try{
+    //             const res = await fetch(`http://localhost:3001/jobs/${id}`);
+    //             const data = await res.json();
+    //             setJob(data);
+    //         }catch{
+    //             console.log('Could not Get Job', error)
+    //         }finally{
+    //             setLoading(false);
+    //         }
+    //     }
+    //     getJob();
+    // }, [])
+
+    // function handleDelete(jobId){
+    //     DeleteJob(jobId);
+    //     navigate('/jobs')
+    // }
 
     return (
             <div>

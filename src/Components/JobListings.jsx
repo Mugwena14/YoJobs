@@ -6,7 +6,7 @@ const JobListings = ({ job }) => {
 
     const [showFull, setShowFull] = useState(false);
     
-    let description = job.description;
+    let description = job.newJob.description;
     
     showFull ? description = description :
         description = description.substring(0, 120) + '...';
@@ -20,12 +20,15 @@ const JobListings = ({ job }) => {
             <div className="bg-white rounded-xl shadow-md relative">
                 <div className="p-4">
                     <div className="mb-6">
-                        <div className="inline-block px-3 py-1 text-xs font-semibold text-teal-700 bg-teal-100 rounded-full">{job.type}</div>
-                        <h3 className="mt-3 text-xl font-bold text-gray-700">{job.title}</h3>
+                        <div 
+                            className="inline-block px-3 py-1 text-xs font-semibold text-teal-700 bg-teal-100 rounded-full">
+                                {job.newJob.type}
+                        </div>
+                        <h3 className="mt-3 text-xl font-bold text-gray-700">{job.newJob.title}</h3>
                     </div>
 
                     <div className="mt-2 text-sm text-gray-600">
-                        {description}
+                        {job.newJob.description}
                     </div>
 
                     <button
@@ -37,14 +40,14 @@ const JobListings = ({ job }) => {
                     <div className="border border-gray-100 mb-5"></div>
 
                     <div className="mt-4 flex items-center justify-between text-sm">
-                        <p className="text-teal-700 font-semibold">{job.salary}</p>
+                        <p className="text-teal-700 font-semibold">{job.newJob.salary}</p>
                         <p className="text-violet-600 font-medium">
                             <CiLocationOn size={14} className="inline-block mb-1 mr-0.5 text-violet text-lg" />
-                            {job.location}
+                            {job.newJob.location}
                         </p>
                     </div>
 
-                    <Link to={`/job/${job.id}`}>
+                    <Link to={`/job/${job.newJob.id}`}>
                         <button className="mt-6 w-full bg-teal-600 hover:bg-violet-600 text-white font-medium py-2 px-4 rounded-lg transition ease-in-out duration-200">
                             View Job
                         </button>
