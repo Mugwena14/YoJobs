@@ -85,11 +85,12 @@ const Job = ({ DeleteJob }) => {
 
                                     {/* Apply Button */}
                                     <div className="pt-4">
-                                        <button
-                                            onClick={() => console.log("Apply clicked")}
-                                            className="w-full bg-teal-600 hover:bg-violet-600 text-white font-medium py-2 px-4 rounded-lg transition ease-in-out duration-200">
-                                            Apply Now
-                                        </button>
+                                        <Link to={job.applyLink} target="_blank" rel="noreferrer">
+                                            <button
+                                                className="w-full bg-teal-600 hover:bg-violet-600 text-white font-medium py-2 px-4 rounded-lg transition ease-in-out duration-200">
+                                                Apply Now
+                                            </button>
+                                        </Link>
                                     </div>
 
                                 </div>
