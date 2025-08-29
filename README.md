@@ -1,12 +1,28 @@
-# React + Vite
+# 🧑‍💼 YoJobs
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+YoJobs is a modern job listing platform built to connect employers and job seekers with ease.  
+It features a clean UI, responsive design, and simple navigation to make job searching and posting seamless.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- Browse and apply for jobs quickly
+- Add new job postings with salary and application links
+- Responsive design (works on desktop & mobile)
+- Custom favicon branding
+- Modern UI with **Teal & Violet** theme
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📖 Usage
+- Browse available jobs
+- Apply with the given application link
+- Employers can post new job listings
+- The custom favicon appears automatically in the browser tab
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
+- React + Vite
+- Tailwindcss
+- Firebase for database
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Developed by Makhubele Langavi Clyde
+
+- LinkedIn: [Makhubele Langavi Clyde](https://www.linkedin.com/in/makhubele-langavi/)
+- Portfolio: [Langavi's Portfolio](https://langavi-portfolio.vercel.app/) 
+- GitHub: [Mugwena14](https://github.com/Mugwena14)
