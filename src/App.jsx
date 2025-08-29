@@ -6,6 +6,8 @@ import NotFnd from "./pages/NotFound"
 import AddJobPage from "./pages/AddJobPage"
 import Job from "./pages/jobPage"
 import JobsPage from "./pages/JobsPage"
+import PrivacyPage from "./pages/PrivacyPage"
+import TermsPage from "./pages/TermsPage"
 
 const App = () => {
 
@@ -20,6 +22,8 @@ const App = () => {
         <Route path="/jobs/:id" element={<JobsPage/>}/>
         <Route path="/add-job" element={<AddJobPage/>}/>
         <Route path="/job/:id" element={<Job/>}/>
+        <Route path="/privacy" element={<PrivacyPage/>}/>
+        <Route path="/terms" element={<TermsPage/>}/>
         <Route path="*" element={<NotFnd/>}/>
       </Route>
     )

@@ -26,9 +26,9 @@ const Footer = () => {
                 <div>
                 <h2 className="text-white font-medium mb-3">Features</h2>
                 <ul className="space-y-2 text-sm">
-                    <li><a href="#" className="hover:text-white">List Jobs</a></li>
-                    <li><a href="#" className="hover:text-white">View Jobs</a></li>
-                    <li><a href="#" className="hover:text-white">Apply for Jobs</a></li>
+                    <li><a href="/add-jobs" className="hover:text-white">List Jobs</a></li>
+                    <li><a href="/jobs" className="hover:text-white">View Jobs</a></li>
+                    <li><a href="/jobs" className="hover:text-white">Apply for Jobs</a></li>
                 </ul>
                 </div>
 
@@ -36,9 +36,9 @@ const Footer = () => {
                 <div>
                 <h2 className="text-white font-medium mb-3">Product</h2>
                 <ul className="space-y-2 text-sm">
-                    <li><a href="#" className="hover:text-white">Home</a></li>
-                    <li><a href="#" className="hover:text-white">About Us</a></li>
-                    <li><a href="#" className="hover:text-white">Get Started</a></li>
+                    <li><a href="/home" className="hover:text-white">Home</a></li>
+                    <li><a href="/about" className="hover:text-white">About Us</a></li>
+                    <li><a href="/jobs" className="hover:text-white">Get Started</a></li>
                 </ul>
                 </div>
 
@@ -46,8 +46,8 @@ const Footer = () => {
                 <div>
                 <h2 className="text-white font-medium mb-3">Policy</h2>
                 <ul className="space-y-2 text-sm">
-                    <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
-                    <li><a href="#" className="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/privacy" className="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms" className="hover:text-white">Terms & Conditions</a></li>
                 </ul>
                 </div>
             </div>
