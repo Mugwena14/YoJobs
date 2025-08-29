@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
 
@@ -26,9 +27,9 @@ const Footer = () => {
                 <div>
                 <h2 className="text-white font-medium mb-3">Features</h2>
                 <ul className="space-y-2 text-sm">
-                    <li><a href="/add-jobs" className="hover:text-white">List Jobs</a></li>
-                    <li><a href="/jobs" className="hover:text-white">View Jobs</a></li>
-                    <li><a href="/jobs" className="hover:text-white">Apply for Jobs</a></li>
+                    <Link to="/add-jobs" className="hover:text-white">List Jobs</Link>
+                    <Link to="/jobs" className="hover:text-white">View Jobs</Link>
+                    <Link to="/jobs" className="hover:text-white">Apply for Jobs</Link>
                 </ul>
                 </div>
 
@@ -36,9 +37,9 @@ const Footer = () => {
                 <div>
                 <h2 className="text-white font-medium mb-3">Product</h2>
                 <ul className="space-y-2 text-sm">
-                    <li><a href="/home" className="hover:text-white">Home</a></li>
-                    <li><a href="/about" className="hover:text-white">About Us</a></li>
-                    <li><a href="/jobs" className="hover:text-white">Get Started</a></li>
+                    <Link to="/home" className="hover:text-white">Home</Link>
+                    <Link to="/about" className="hover:text-white">About Us</Link>
+                    <Link to="/jobs" className="hover:text-white">Get Started</Link>
                 </ul>
                 </div>
 
@@ -46,8 +47,8 @@ const Footer = () => {
                 <div>
                 <h2 className="text-white font-medium mb-3">Policy</h2>
                 <ul className="space-y-2 text-sm">
-                    <li><a href="/privacy" className="hover:text-white">Privacy Policy</a></li>
-                    <li><a href="/terms" className="hover:text-white">Terms & Conditions</a></li>
+                    <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
+                    <Link to="/terms" className="hover:text-white">Terms & Conditions</Link>
                 </ul>
                 </div>
             </div>
