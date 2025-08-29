@@ -1,7 +1,13 @@
-import { Link } from 'react-router-dom'
 import logo from '../assets/images/logo.png'
+import { Link } from "react-router-dom";
+import { AiFillHome } from "react-icons/ai";
+import { FaBriefcase } from "react-icons/fa";
+import { MdAddCircleOutline } from "react-icons/md";
+
+
 
 const NavBar = () => {
+
     return (
         <div>
             <nav className="bg-teal-700 border-b border-teal-500">
@@ -11,36 +17,43 @@ const NavBar = () => {
                         className="flex flex-1 items-center justify-center md:items-stretch md:justify-start"
                     >
                         {/* <!-- Logo --> */}
-                        <Link className="flex flex-shrink-0 items-center mr-4" to="/index">
+                        <Link className="flex flex-shrink-0 items-center" to="/home">
                         <img
-                            className="h-10 w-auto"
+                            className="h-15 w-auto mt-1"
                             src={logo}
-                            alt="React Jobs"
+                            alt="YoJobs"
                         />
-                        <span className="hidden md:block text-white text-2xl font-bold ml-2">
-                            <span className="text-violet-400">Yo</span>Jobs
+                        <span
+                            className="hidden md:block text-2xl font-bold bg-gradient-to-r from-white to-violet-500 bg-clip-text text-transparent">
+                            YoJobs
                         </span>
                         </Link>
-                        <div className="md:ml-auto">
-                        <div className="flex space-x-2">
+                                            
+                    <div className="md:ml-auto">
+                        <div className="flex space-x-2 flex items-center mt-2">
                             <Link
-                            to="/index"
-                            className="text-white transition ease-in-out duration-300 hover:text-violet-600 rounded-md px-3 py-2"
-                            >Home</Link>
+                            to="/home"
+                            className="flex items-center gap-2 text-white transition ease-in-out duration-300 hover:text-violet-600 rounded-md px-3 py-2"
+                            >
+                            <AiFillHome size={18} />
+                            Home
+                            </Link>
                             <Link
                             to="/jobs"
-                            className="text-white transition ease-in-out duration-300 hover:text-violet-600 rounded-md px-3 py-2"
-                            >Jobs</Link>
+                            className="flex items-center gap-2 text-white transition ease-in-out duration-300 hover:text-violet-600 rounded-md px-3 py-2"
+                            >
+                            <FaBriefcase size={18} />
+                            Jobs
+                            </Link>
                             <Link
                             to="/add-job"
-                            className="text-white transition ease-in-out duration-300 hover:text-violet-600 rounded-md px-3 py-2"
-                            >Add Job</Link>
-                            <Link
-                            to="/log-in"
-                            className="text-white transition ease-in-out duration-300 hover:text-violet-600 rounded-md px-3 py-2"
-                            >Log In</Link>
+                            className="flex items-center gap-2 text-white transition ease-in-out duration-300 hover:text-violet-600 rounded-md px-3 py-2"
+                            >
+                            <MdAddCircleOutline size={20} />
+                            Add Job
+                            </Link>
                         </div>
-                        </div>
+                    </div>
                     </div>
                     </div>
                 </div>

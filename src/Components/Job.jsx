@@ -124,7 +124,7 @@ const Job = ({ DeleteJob }) => {
                                     </div>
 
                                     {/* Manage Actions */}
-                                    <div className="flex flex-col md:flex-row gap-3 pt-2">
+                                    {/* <div className="flex flex-col md:flex-row gap-3 pt-2">
                                     <Link
                                         to="/add-job"
                                         className="bg-green-400 hover:bg-teal-600 text-white text-center text-sm font-medium py-2 px-4 rounded-lg transition w-full md:w-1/2"
@@ -137,7 +137,7 @@ const Job = ({ DeleteJob }) => {
                                     >
                                         Delete Job
                                     </button>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 </aside>
                             </div>

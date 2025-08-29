@@ -1,10 +1,10 @@
 import React from 'react'
-import LogIn from '../Components/LogIn' 
+import AuthForm from '../Components/AuthForm' 
 
 const LogInPage = () => {
     return (
         <>
-            <LogIn />
+            <AuthForm />
         </>
     )
 }
