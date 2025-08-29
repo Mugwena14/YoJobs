@@ -1,9 +1,9 @@
-import JobListing from "../Components/jobListing"
+import JobListing from "../Components/JobListing"
 
 const JobsPage = () => {
     return (
         <div>
-            <JobListing isHome={false}/>
+            <JobListing/>
         </div>
     )
 }
