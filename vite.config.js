@@ -7,5 +7,5 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss()],
-    base: process.env.VITE_BASE_PATH === 'production' ? '/YoJobs' : '/home',
+    base: process.env.VITE_BASE_PATH === 'production' ? '/YoJobs' : '/',
 })
