@@ -16,9 +16,9 @@ const NavBar = () => {
             <div className="flex h-20 items-center justify-between">
             {/* Logo */}
             <Link className="flex items-center" to="/home">
-                <img className="h-14 w-auto mt-1" src={logo} alt="YoJobs" />
+                <img className="h-14 w-auto mt-1" src={logo} alt="NextHire" />
                 <span className="hidden md:block text-2xl font-bold bg-gradient-to-r from-white to-violet-500 bg-clip-text text-transparent ml-2">
-                YoJobs
+                NextHire
                 </span>
             </Link>
 

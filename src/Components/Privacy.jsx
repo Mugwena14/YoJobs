@@ -10,7 +10,7 @@ const Privacy = () => {
 
             <div className="space-y-8 text-gray-200">
             <p>
-                At <span className="font-semibold">YoJobs</span>, your privacy is important to us. 
+                At <span className="font-semibold">NextHire</span>, your privacy is important to us. 
                 This Privacy Policy explains how we collect, use, and protect your personal information 
                 when you use our platform.
             </p>

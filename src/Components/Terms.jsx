@@ -10,7 +10,7 @@ const Terms = () => {
 
                 <div className="space-y-8 text-gray-200">
                 <p>
-                    Welcome to <span className="font-semibold">YoJobs</span>. By accessing or using our platform, 
+                    Welcome to <span className="font-semibold">NextHire</span>. By accessing or using our platform, 
                     you agree to the following Terms & Conditions. Please read them carefully before using the site.
                 </p>
 
@@ -25,7 +25,7 @@ const Terms = () => {
                 <div>
                     <h3 className="text-2xl font-semibold mb-2 text-white">2. Use of the Platform</h3>
                     <p>
-                    You agree to use YoJobs only for lawful purposes. You must not misuse the platform, 
+                    You agree to use NextHire only for lawful purposes. You must not misuse the platform, 
                     attempt unauthorized access, or use it in a way that harms others.
                     </p>
                 </div>
@@ -42,7 +42,7 @@ const Terms = () => {
                     <h3 className="text-2xl font-semibold mb-2 text-white">4. Job Listings & Applications</h3>
                     <p>
                     Employers are responsible for the accuracy of job postings. Job seekers are responsible 
-                    for the information provided in their applications. YoJobs is not responsible for the 
+                    for the information provided in their applications. NextHire is not responsible for the 
                     outcomes of applications or employment decisions.
                     </p>
                 </div>
@@ -51,14 +51,14 @@ const Terms = () => {
                     <h3 className="text-2xl font-semibold mb-2 text-white">5. Intellectual Property</h3>
                     <p>
                     All content on this platform, including logos, text, graphics, and software, 
-                    is the property of YoJobs or its licensors and may not be used without permission.
+                    is the property of NextHire or its licensors and may not be used without permission.
                     </p>
                 </div>
 
                 <div>
                     <h3 className="text-2xl font-semibold mb-2 text-white">6. Limitation of Liability</h3>
                     <p>
-                    YoJobs is not liable for any damages resulting from your use of the platform, 
+                    NextHire is not liable for any damages resulting from your use of the platform, 
                     including but not limited to lost opportunities or technical issues.
                     </p>
                 </div>

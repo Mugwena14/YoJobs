@@ -1,6 +1,6 @@
-# 🧑‍💼 YoJobs
+# 🧑‍💼 NextHire
 
-YoJobs is a modern job listing platform built to connect employers and job seekers with ease.  
+NextHire is a modern job listing platform built to connect employers and job seekers with ease.  
 It features a clean UI, responsive design, and simple navigation to make job searching and posting seamless.
 
 ## 🚀 Features
