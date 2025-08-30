@@ -8,7 +8,7 @@ const AboutUs = () => {
             About Us
             </h2>
             <p className="text-lg leading-relaxed mb-8 text-gray-200">
-            At <span className="font-semibold">NextHire</span>, we believe that the right job can change a life, 
+            At <span className="font-semibold">Job Mzala</span>, we believe that the right job can change a life, 
             and the right candidate can transform a company. Our mission is to connect 
             talented individuals with opportunities that inspire growth, innovation, and success.  
             </p>

@@ -13,12 +13,12 @@ const Footer = () => {
                 <div className="flex items-center space-x-2">
                     {/* Logo placeholder */}
                     <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">N</span>
+                    <span className="text-white font-bold">J</span>
                     </div>
-                    <h1 className="text-white font-semibold text-lg">Hire</h1>
+                    <h1 className="text-white font-semibold text-lg">Mzala</h1>
                 </div>
                 <p className="mt-3 text-sm leading-relaxed">
-                    NextHire is a free modern job platform that connects employers with talented professionals, 
+                    Job Mzala is a free modern job platform that connects employers with talented professionals, 
                     making it easier to find the right job or hire the right candidate.
                 </p>
                 </div>
