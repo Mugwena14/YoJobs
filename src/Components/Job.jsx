@@ -116,11 +116,13 @@ const Job = ({ DeleteJob }) => {
                                         {job.companyEmail}
                                         </p>
                                     </div>
-                                    <div>
+                                    {job.contactPhone && (
+                                        <div>
                                         <p className="bg-violet-50 text-violet-700 p-2 rounded text-sm font-medium">
-                                        {job.contactPhone}
+                                            {job.contactPhone}
                                         </p>
-                                    </div>
+                                        </div>
+                                    )}
                                     </div>
 
                                     {/* Manage Actions */}
