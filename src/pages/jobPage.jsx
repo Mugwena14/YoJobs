@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 
 function JobPage({ job }) {
     return (
