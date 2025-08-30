@@ -4,7 +4,7 @@ import Spinner from "./Spinner";
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../config/firebase';
 
-const JobListing = ({ isHome }) => {
+const JobListing = () => {
 
     
     const [jobs, setJobs] = useState([]);
