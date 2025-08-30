@@ -236,7 +236,6 @@ const AddJob = () => {
                         className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
                         placeholder="Company/Recruiter Contact Phone"
                         value={contactPhone}
-                        required
                         onChange={(e) => setContactPhone(e.target.value)}
                     />
                     </div>
