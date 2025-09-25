@@ -26,9 +26,8 @@ const Footer = () => {
                 <div>
                 <h2 className="text-white font-medium mb-3">Features</h2>
                 <ul className="space-y-2 text-sm flex flex-col">
-                    <Link to="/add-job" className="hover:text-white">List Items</Link>
-                    <Link to="/jobs" className="hover:text-white">View Items</Link>
-                    <Link to="/jobs" className="hover:text-white">Apply for Jobs</Link>
+                    <Link to="/add-item" className="hover:text-white">List Items</Link>
+                    <Link to="/items" className="hover:text-white">View Items</Link>
                 </ul>
                 </div>
 
@@ -38,7 +37,7 @@ const Footer = () => {
                 <ul className="space-y-2 text-sm flex flex-col">
                     <Link to="/home" className="hover:text-white">Home</Link>
                     <Link to="/about" className="hover:text-white">About Us</Link>
-                    <Link to="/jobs" className="hover:text-white">Get Started</Link>
+                    <Link to="/items" className="hover:text-white">Get Started</Link>
                 </ul>
                 </div>
 
@@ -59,3 +58,4 @@ const Footer = () => {
 }
 
 export default Footer
+
