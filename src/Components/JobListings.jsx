@@ -30,7 +30,6 @@ const JobListings = ({ job }) => {
                     </div>
 
                     <div className="mt-2 text-sm text-gray-600">
-                        {description}
                     </div>
 
                     <button

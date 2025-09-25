@@ -18,7 +18,7 @@ const NavBar = () => {
             <Link className="flex items-center" to="/home">
                 <img className="h-14 w-auto mt-1" src={logo} alt="Job Mzala" />
                 <span className="hidden md:block text-2xl font-bold bg-gradient-to-r from-white to-violet-500 bg-clip-text text-transparent ml-2">
-                Job Mzala
+                Loopkart
                 </span>
             </Link>
 
@@ -32,18 +32,18 @@ const NavBar = () => {
                 Home
                 </Link>
                 <Link
-                to="/jobs"
+                to="/items"
                 className="flex items-center gap-2 text-white transition ease-in-out duration-300 hover:text-violet-400 rounded-md px-3 py-2"
                 >
                 <FaBriefcase size={18} />
-                Jobs
+                Discover
                 </Link>
                 <Link
-                to="/add-job"
+                to="/add-item"
                 className="flex items-center gap-2 text-white transition ease-in-out duration-300 hover:text-violet-400 rounded-md px-3 py-2"
                 >
                 <MdAddCircleOutline size={20} />
-                Add Job
+                Sell
                 </Link>
             </div>
 
@@ -71,20 +71,20 @@ const NavBar = () => {
                 Home
             </Link>
             <Link
-                to="/jobs"
+                to="/items"
                 onClick={() => setMenuOpen(false)}
                 className="flex items-center gap-2 text-white hover:text-violet-300"
             >
                 <FaBriefcase size={18} />
-                Jobs
+                Discover
             </Link>
             <Link
-                to="/add-job"
+                to="/add-item"
                 onClick={() => setMenuOpen(false)}
                 className="flex items-center gap-2 text-white hover:text-violet-300"
             >
                 <MdAddCircleOutline size={20} />
-                Add Job
+                Sell
             </Link>
             </div>
         )}

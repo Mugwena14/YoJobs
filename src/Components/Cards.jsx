@@ -17,7 +17,7 @@ const Cards = ({ cards }) => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-lg">
                     <div className="bg-gray-100 p-6 rounded-lg shadow-md transform hover:scale-101 transition duration-300 ease-in-out">
                         <div className="flex row justify-between">
-                            <h2 className="text-2xl font-bold text-teal-800">Job Seekers</h2>
+                            <h2 className="text-2xl font-bold text-teal-800">Item Seekers</h2>
                             {display ? 
                             <>
                             <button>
@@ -42,13 +42,13 @@ const Cards = ({ cards }) => {
                             <>
                                 <div>
                                     <p className="mt-2 mb-4">
-                                        Find your next role and grow your career today.
+                                        Discover what is waiting for you today.
                                     </p>
                                     <Link
-                                    to="/jobs"
+                                    to="/items"
                                     className="inline-block bg-violet-700 text-white rounded-lg px-4 py-2 hover:bg-indigo-400"
                                     >
-                                    View Jobs
+                                    View Items
                                     </Link>
                                 </div>
                             </>
@@ -56,7 +56,7 @@ const Cards = ({ cards }) => {
                     </div>
                     <div className="bg-indigo-100 p-6 rounded-lg shadow-md transform hover:scale-101 transition duration-300 ease-in-out">
                         <div className="flex row justify-between">
-                            <h2 className="text-2xl font-bold text-teal-800">Employers</h2>
+                            <h2 className="text-2xl font-bold text-teal-800">Sellers</h2>
                             {display ? 
                             <>
                             <button>
@@ -80,12 +80,12 @@ const Cards = ({ cards }) => {
                         {display ? 
                         <>
                             <p className="mt-2 mb-4">
-                                List your job to find the perfect skills for the role
+                                Turn ypu products into profit today.
                             </p>
-                            <Link to="/add-job"
+                            <Link to="/add-item"
                             className="inline-block bg-violet-700 text-white rounded-lg px-4 py-2 hover:bg-indigo-400"
                             >
-                            Add Job
+                            Add Item
                             </Link>
                         </> : ""}
                     </div>

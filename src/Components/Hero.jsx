@@ -14,10 +14,10 @@ const Hero = () => {
                     className="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl"
                     
                 >
-                    Secure your job
+                    Discover and sell items digitally.
                 </h1>
                 <p className="my-4 text-xl text-white">
-                    Find work you love. Connect, Apply & Grow.
+                    All you need. All in one place. 
                 </p>
                 </div>
             </div>

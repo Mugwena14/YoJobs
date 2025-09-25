@@ -1,261 +1,253 @@
-import { useState } from "react"
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { collection, addDoc } from 'firebase/firestore'
-import { db } from '../config/firebase'
+import { collection, addDoc } from "firebase/firestore";
+import { db, storage } from "../config/firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { toast } from 'react-toastify';
 
 const AddJob = () => {
+  const [productName, setProductName] = useState("");
+  const [productPrice, setProductPrice] = useState("");
+  const [productImage, setProductImage] = useState(null); // file object
+  const [productDescription, setProductDescription] = useState("");
+  const [name, setName] = useState("");
+  const [location, setLocation] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
+  const [whatsaapNo, setWhatsaapNo] = useState("");
+  const [email, setEmail] = useState("");
 
-    const [type, setType] = useState('');
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [salary, setSalary] = useState('');
-    const [location, setLocation] = useState('');
-    const [companyName, setCompanyName] = useState('');
-    const [companyDescription, setCompanyDescription] = useState('');
-    const [companyEmail, setCompanyEmail] = useState('');
-    const [contactPhone, setContactPhone] = useState('');
-    const [applyLink, setApplyLink] = useState('');
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    const now = new Date();
+    toast.info("Adding product...", {
+      autoClose: 5000,
+    });
 
-    const options = {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true
-    }
 
-    const formattedDate = now.toLocaleString('en-ZA', options);
+    try {
+      let imageUrl = "";
 
-    const newJob = {
-        date: formattedDate,
-        title,
-        type,
-        description,
+      if (productImage) {
+        const imageRef = ref(storage, `LoopKartImages/${productImage.name}`);
+        const snapshot = await uploadBytes(imageRef, productImage);
+        imageUrl = await getDownloadURL(snapshot.ref);
+      }
+
+      const productData = {
+        productName,
+        productPrice,
+        productImage: imageUrl,
+        productDescription,
+        name,
         location,
-        salary,
-        companyName,
-        companyDescription, 
-        companyEmail,
-        contactPhone,
-        applyLink,
+        phoneNo,
+        whatsaapNo,
+        email,
+      };
+
+      await addDoc(collection(db, "products"), productData);
+
+    } catch (error) {
+      console.error("Error uploading product:", error);
     }
 
-    async function handleSubmit(e){
-        e.preventDefault();
+    navigate("/jobs");
 
-        try{
-            await addDoc(collection(db, "jobs"), {
-                newJob
-            });
-        }catch(error){
-            console.error("Error Listing Job", error)
-        }
-        navigate('/jobs')
-    }
+  };
 
-    return (
-        <section className="bg-violet-50">
-            <div className="container m-auto max-w-2xl py-24">
-                <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-2xl border border-teal-200 m-4 md:m-0">
-                <form onSubmit={handleSubmit}>
-                    <h2 className="text-3xl text-center font-bold mb-6 text-violet-700">
-                    Add Job
-                    </h2>
+  return (
+    <section className="bg-violet-50">
+      <div className="container m-auto max-w-2xl py-24">
+        <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-2xl border border-teal-200 m-4 md:m-0">
+          <form onSubmit={handleSubmit}>
+            <h2 className="text-3xl text-center font-bold mb-6 text-violet-700">
+              Add Product
+            </h2>
 
-                    {/* Job Type */}
-                    <div className="mb-4">
-                    <label htmlFor="type" className="block text-violet-800 font-semibold mb-2">
-                        Job Type
-                    </label>
-                    <select
-                        id="type"
-                        name="type"
-                        className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
-                        required
-                        value={type}
-                        onChange={(e) => setType(e.target.value)}
-                    >
-                        <option value="">Select Job Type</option>
-                        <option value="Internship">Internship</option>
-                        <option value="PartTime">Part-Time</option>
-                        <option value="FullTime">Full-Time</option>
-                    </select>
-                    </div>
-
-                    {/* Job Title */}
-                    <div className="mb-4">
-                    <label htmlFor="title" className="block text-violet-800 font-semibold mb-2">
-                        Job Listing Position
-                    </label>
-                    <input
-                        type="text"
-                        id="title"
-                        name="title"
-                        className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
-                        placeholder="eg. Software Developer"
-                        required
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
-                    </div>
-
-                    {/* Description */}
-                    <div className="mb-4">
-                    <label htmlFor="description" className="block text-violet-800 font-semibold mb-2">
-                        Description
-                    </label>
-                    <textarea
-                        id="description"
-                        name="description"
-                        className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
-                        rows="4"
-                        placeholder="Add job duties, expectations, requirements, benefits..."
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                    ></textarea>
-                    </div>
-
-                    {/* Salary */}
-                    <div className="mb-4">
-                    <label htmlFor="salary" className="block text-violet-800 font-semibold mb-2">
-                        Salary
-                    </label>
-                    <select
-                        id="salary"
-                        name="salary"
-                        className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
-                        required
-                        value={salary}
-                        onChange={(e) => setSalary(e.target.value)}
-                    >
-                        <option value="">Select salary range</option>
-                        <option value="To be discussed">To Be Discussed</option>
-                        <option value="R0 - R10000">R0 - R10000</option>
-                        <option value="R10000 - R20000">R10000 - R20000</option>
-                        <option value="R20000 - R30000">R20000 - R30000</option>
-                        <option value="R30000 - R40000">R30000 - R40000</option>
-                        <option value="Over R40000">Over R40000</option>
-                    </select>
-                    </div>
-
-                    {/* Location */}
-                    <div className="mb-4">
-                    <label htmlFor="location" className="block text-violet-800 font-semibold mb-2">
-                        Location
-                    </label>
-                    <input
-                        type="text"
-                        id="location"
-                        name="location"
-                        className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
-                        placeholder="Company Location"
-                        required
-                        value={location}
-                        onChange={(e) => setLocation(e.target.value)}
-                    />
-                    </div>
-
-                    {/* Application Link */}
-                    <div className="mb-4">
-                    <label htmlFor="applyLink" className="block text-violet-800 font-semibold mb-2">
-                        Application Link
-                    </label>
-                    <input
-                        type="url"
-                        id="applyLink"
-                        name="applyLink"
-                        className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
-                        placeholder="https://company.com/apply"
-                        value={applyLink}
-                        onChange={(e) => setApplyLink(e.target.value)}
-                    />
-                    </div>
-
-                    {/* Company Info */}
-                    <h3 className="text-2xl mb-5 text-teal-600 font-bold">Company Info</h3>
-
-                    <div className="mb-4">
-                    <label htmlFor="company" className="block text-violet-800 font-semibold mb-2">
-                        Company Name
-                    </label>
-                    <input
-                        type="text"
-                        id="company"
-                        name="company"
-                        className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
-                        placeholder="Company Name"
-                        value={companyName}
-                        onChange={(e) => setCompanyName(e.target.value)}
-                    />
-                    </div>
-
-                    <div className="mb-4">
-                    <label htmlFor="company_description" className="block text-violet-800 font-semibold mb-2">
-                        Company Description
-                    </label>
-                    <textarea
-                        id="company_description"
-                        name="company_description"
-                        className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
-                        rows="4"
-                        placeholder="What does your company do?"
-                        value={companyDescription}
-                        onChange={(e) => setCompanyDescription(e.target.value)}
-                    ></textarea>
-                    </div>
-
-                    <div className="mb-4">
-                    <label htmlFor="contact_email" className="block text-violet-800 font-semibold mb-2">
-                        Contact Email
-                    </label>
-                    <input
-                        type="email"
-                        id="contact_email"
-                        name="contact_email"
-                        className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
-                        placeholder="Company/Recruiter Email address"
-                        required
-                        value={companyEmail}
-                        onChange={(e) => setCompanyEmail(e.target.value)}
-                    />
-                    </div>
-
-                    <div className="mb-4">
-                    <label htmlFor="contact_phone" className="block text-violet-800 font-semibold mb-2">
-                        Contact Phone
-                    </label>
-                    <input
-                        type="tel"
-                        id="contact_phone"
-                        name="contact_phone"
-                        className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
-                        placeholder="Company/Recruiter Contact Phone"
-                        value={contactPhone}
-                        onChange={(e) => setContactPhone(e.target.value)}
-                    />
-                    </div>
-
-                    {/* Submit */}
-                    <div>
-                    <button
-                        className="bg-violet-600 hover:bg-teal-500 transition-colors duration-300 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
-                        type="submit"
-                    >
-                        Add Job
-                    </button>
-                    </div>
-                </form>
-                </div>
+            {/* Product Name */}
+            <div className="mb-4">
+              <label
+                htmlFor="productName"
+                className="block text-violet-800 font-semibold mb-2"
+              >
+                Product Name
+              </label>
+              <input
+                type="text"
+                id="productName"
+                className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                placeholder="e.g. Wireless Headphones"
+                required
+                value={productName}
+                onChange={(e) => setProductName(e.target.value)}
+              />
             </div>
-        </section>
 
+            {/* Product Price */}
+            <div className="mb-4">
+              <label
+                htmlFor="productPrice"
+                className="block text-violet-800 font-semibold mb-2"
+              >
+                Product Price
+              </label>
+              <input
+                type="number"
+                id="productPrice"
+                className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                placeholder="e.g. 2500"
+                required
+                value={productPrice}
+                onChange={(e) => setProductPrice(e.target.value)}
+              />
+            </div>
 
-    )
-}
+            {/* Product Image */}
+            <div className="mb-4">
+              <label
+                htmlFor="productImage"
+                className="block text-violet-800 font-semibold mb-2"
+              >
+                Product Image
+              </label>
+              <input
+                type="file"
+                id="productImage"
+                accept="image/*"
+                className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                onChange={(e) => setProductImage(e.target.files[0])}
+              />
+            </div>
 
-export default AddJob
+            {/* Product Description */}
+            <div className="mb-4">
+              <label
+                htmlFor="productDescription"
+                className="block text-violet-800 font-semibold mb-2"
+              >
+                Product Description
+              </label>
+              <textarea
+                id="productDescription"
+                rows="4"
+                className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                placeholder="Describe the product details, features, or condition..."
+                value={productDescription}
+                onChange={(e) => setProductDescription(e.target.value)}
+              ></textarea>
+            </div>
+
+            {/* Seller Info */}
+            <h3 className="text-2xl mb-5 text-teal-600 font-bold">Seller Info</h3>
+
+            {/* Seller Name */}
+            <div className="mb-4">
+              <label
+                htmlFor="name"
+                className="block text-violet-800 font-semibold mb-2"
+              >
+                Seller Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                placeholder="Your Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+
+            {/* Location */}
+            <div className="mb-4">
+              <label
+                htmlFor="location"
+                className="block text-violet-800 font-semibold mb-2"
+              >
+                Location
+              </label>
+              <input
+                type="text"
+                id="location"
+                className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                placeholder="City, Area"
+                required
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+              />
+            </div>
+
+            {/* Phone Number */}
+            <div className="mb-4">
+              <label
+                htmlFor="phoneNo"
+                className="block text-violet-800 font-semibold mb-2"
+              >
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                id="phoneNo"
+                className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                placeholder="e.g. 012 345 6789"
+                value={phoneNo}
+                onChange={(e) => setPhoneNo(e.target.value)}
+              />
+            </div>
+
+            {/* WhatsApp Number */}
+            <div className="mb-4">
+              <label
+                htmlFor="whatsaapNo"
+                className="block text-violet-800 font-semibold mb-2"
+              >
+                WhatsApp Number
+              </label>
+              <input
+                type="tel"
+                id="whatsaapNo"
+                className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                placeholder="e.g. 012 345 6789"
+                value={whatsaapNo}
+                onChange={(e) => setWhatsaapNo(e.target.value)}
+              />
+            </div>
+
+            {/* Email */}
+            <div className="mb-4">
+              <label
+                htmlFor="email"
+                className="block text-violet-800 font-semibold mb-2"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                className="border border-violet-200 rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                placeholder="your@email.com"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+
+            {/* Submit */}
+            <div>
+              <button
+                className="bg-violet-600 hover:bg-teal-500 transition-colors duration-300 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
+                type="submit"
+              >
+                Add Product
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default AddJob;

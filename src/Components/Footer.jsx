@@ -13,13 +13,12 @@ const Footer = () => {
                 <div className="flex items-center space-x-2">
                     {/* Logo placeholder */}
                     <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">J</span>
+                    <span className="text-white font-bold">L</span>
                     </div>
-                    <h1 className="text-white font-semibold text-lg">Mzala</h1>
+                    <h1 className="text-white font-semibold text-lg">Kart</h1>
                 </div>
                 <p className="mt-3 text-sm leading-relaxed">
-                    Job Mzala is a free modern job platform that connects employers with talented professionals, 
-                    making it easier to find the right job or hire the right candidate.
+                    Loopkart is a FREE dynamic marketplace that connects buyers and sellers in one seamless platform. We make shopping simple, secure, and accessible, anytime, anywhere. 
                 </p>
                 </div>
 
@@ -27,8 +26,8 @@ const Footer = () => {
                 <div>
                 <h2 className="text-white font-medium mb-3">Features</h2>
                 <ul className="space-y-2 text-sm flex flex-col">
-                    <Link to="/add-job" className="hover:text-white">List Jobs</Link>
-                    <Link to="/jobs" className="hover:text-white">View Jobs</Link>
+                    <Link to="/add-job" className="hover:text-white">List Items</Link>
+                    <Link to="/jobs" className="hover:text-white">View Items</Link>
                     <Link to="/jobs" className="hover:text-white">Apply for Jobs</Link>
                 </ul>
                 </div>
