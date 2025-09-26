@@ -1,28 +1,39 @@
-# 🧑‍💼 NextHire
+# 🛒 LoopKart
 
-NextHire is a modern job listing platform built to connect employers and job seekers with ease.  
-It features a clean UI, responsive design, and simple navigation to make job searching and posting seamless.
+[LoopKart](https://loopkart.vercel.app/) is a modern **marketplace platform** where sellers can easily **list and sell products**, while buyers can conveniently **browse and purchase items**.  
+It’s built with a clean, responsive UI that ensures a smooth shopping and selling experience across devices.  
+
+---
 
 ## 🚀 Features
-- Browse and apply for jobs quickly
-- Add new job postings with salary and application links
-- Responsive design (works on desktop & mobile)
-- Custom favicon branding
-- Modern UI with **Teal & Violet** theme
+- 📦 List products with details and images  
+- 🛍️ Browse and buy items directly from sellers  
+- 📱 Responsive design (mobile & desktop friendly)  
+- 🔒 Secure and simple user experience  
+- 🎨 Custom favicon branding  
+- ✨ Modern UI with a fresh, minimal theme  
+
+---
 
 ## 📖 Usage
-- Browse available jobs
-- Apply with the given application link
-- Employers can post new job listings
-- The custom favicon appears automatically in the browser tab
+- **Sellers** → List products for sale with descriptions and images  
+- **Buyers** → Browse categories, view items, and make purchases  
+- The custom favicon helps brand recognition in the browser tab  
+
+---
 
 ## 🛠️ Tech Stack
-- React + Vite
-- Tailwindcss
-- Firebase for database
+- ⚛️ React + Vite  
+- 🎨 Tailwind CSS  
+- 🔥 Firebase (database & authentication)  
 
-Developed by Makhubele Langavi Clyde
+---
 
-- LinkedIn: [Makhubele Langavi Clyde](https://www.linkedin.com/in/makhubele-langavi/)
-- Portfolio: [Langavi's Portfolio](https://langavi-portfolio.vercel.app/) 
-- GitHub: [Mugwena14](https://github.com/Mugwena14)
+## 👨‍💻 Developer
+Developed by **Makhubele Langavi Clyde**  
+
+- 🔗 [LinkedIn](https://www.linkedin.com/in/makhubele-langavi/)  
+- 🌐 [Portfolio](https://langavi-portfolio.vercel.app/)  
+- 💻 [GitHub](https://github.com/Mugwena14)  
+
+---
